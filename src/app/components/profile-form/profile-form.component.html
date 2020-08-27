@@ -1,0 +1,155 @@
+<div class="content-container">
+    <h3>Profile</h3>
+    
+    <form class="form" (ngSubmit)="onSubmit()">
+    <div id="form-box">
+        <h3>Basic Information</h3>
+        <label for="fname">First Name*</label>
+        <input
+        type="text"
+        name="fName"
+        class="text-input"
+        id="fname"
+        placeholder="Your First Name"
+        required
+        minlength="2"
+        maxlength="20"
+        pattern="[a-zA-Z]+"
+        [(ngModel)]="fName"
+        #fNameInput="ngModel"
+        /> 
+        <app-error-message
+         errorMessage="Your first name is required and needs to be 2-20 characters with no symbols or numbers."
+          [condition]="fNameInput.invalid && fNameInput.touched" 
+        >
+        </app-error-message>
+        <label for="lname">Last Name*</label>
+        <input 
+        type="text"
+        name="lName"
+        class="text-input"
+        id="lname"
+        placeholder="Your Last Name"
+        required
+        minlength="2"
+        maxlength="20"
+        pattern="[a-zA-Z]+"
+        [(ngModel)]="lName"
+        #lNameInput="ngModel"
+
+        />
+        <app-error-message
+         errorMessage=" Your last name is required and needs to be 2-20 characters with no symbols or numbers."
+          [condition]="lNameInput.invalid && lNameInput.touched" 
+        >
+        </app-error-message>
+      
+
+        <label class="mat" for="skill1 ">Skill 1*</label>
+        <mat-form-field appearance="none">
+            <input 
+            type="text"
+            
+            class="text-input"
+            id="skill1"
+            placeholder="Type and select from the list"
+            matInput
+            [matAutocomplete]="auto1"
+            [formControl]= "skill1Control"
+            [ngClass]="{'error-mat-border':skill1Control.touched && (skill1Control.value == skill2Control.value || skill1Control.value == skill3Control.value || !options.includes(skill1Control.value))}"
+            
+            />
+            <mat-autocomplete #auto1="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions1 | async" [value]="option">
+                    {{option}}
+
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field >
+        <app-error-message
+         errorMessage=" Error:skill is selected twice"
+         [condition]="skill1Control.touched && (skill1Control.value == skill2Control.value || skill1Control.value == skill3Control.value)" 
+        >
+        </app-error-message>
+        <app-error-message
+         errorMessage=" Error:Please choose a skill from the list"
+         [condition]="skill1Control.touched && !options.includes(skill1Control.value)"
+        >
+        </app-error-message>
+        
+        
+        
+        <label class="mat" for="skill2">Skill 2*</label>
+        <mat-form-field appearance="none">
+        <input 
+        type="text"
+        name="skill2"
+        class="text-input"
+        id="skill2"
+        placeholder="Type and select from the list"
+        matInput
+        [matAutocomplete]="auto2"
+        [formControl]= "skill2Control"
+        [ngClass]="{'error-mat-border':skill2Control.touched && (skill2Control.value == skill3Control.value|| !options.includes(skill2Control.value))}"
+        
+
+        />
+        <mat-autocomplete #auto2="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions2 | async" [value]="option">
+                {{option}}
+
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+   
+     <app-error-message
+         errorMessage=" Error:skill is selected twice"
+         [condition]="skill2Control.touched && (skill2Control.value == skill3Control.value)" 
+        >
+        </app-error-message>
+        <app-error-message
+         errorMessage=" Error:Please choose a skill from the list"
+         [condition]="skill2Control.touched && !options.includes(skill2Control.value)"
+        >
+        </app-error-message>
+
+
+    <label class="mat" for="skill3">Skill 3*</label>
+    <mat-form-field appearance="none">
+        <input 
+        type="text"
+        name="skill3"
+        class="text-input "
+        id="skill3"
+        placeholder="Type and select from the list"
+        matInput
+        [matAutocomplete]="auto3"
+        [formControl]= "skill3Control"
+        [ngClass]="{'error-mat-border':skill3Control.touched &&  (!options.includes(skill3Control.value))}"
+        
+
+        />
+        <mat-autocomplete #auto3="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions3 | async" [value]="option">
+                {{option}}
+
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+        
+        <app-error-message
+         errorMessage=" Error:Please choose a skill from the list"
+         [condition]="skill3Control.touched && !options.includes(skill3Control.value)"
+        >
+        </app-error-message>
+    
+    </div>  
+    <div>
+    <button id="button-submit">Save Profile</button>
+    </div>
+
+    
+    </form>
+
+</div>

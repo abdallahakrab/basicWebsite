@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import './styles/base/settings';
+@import './styles/base/base';
+@import './styles/components/content-container';
+@import './styles/components/header';
+@import './app/components/article-image/article-image.component.scss';
+@import './app/components//text-button/text-button.component.scss';
+@import'./app/components/profile-form/profile-form.component.scss';
+@import'./app/components/home/home.component.scss';
+
+
+
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

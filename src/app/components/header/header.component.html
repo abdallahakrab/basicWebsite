@@ -1,0 +1,35 @@
+<header class="header">
+    <div class="content-container">
+       
+        <!-- Nav bar -->
+        <div class="header__content">
+            <img class="logo" src="../../../assets/logo.svg">
+            
+
+                <!-- logo -->
+            <nav>
+                <a 
+                class="navbar-item"
+                [routerLink]="['/']"
+                routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{exact: true}"
+                >
+                Home
+                </a>
+                <a
+                class="navbar-item"
+                route   
+                [routerLink]="['/profile']"
+                routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{exact: true}"
+                >
+                    Profile
+                </a>
+            </nav>
+                
+                
+            
+        </div>
+    </div>  
+
+</header>
