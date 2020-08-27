@@ -12,7 +12,7 @@ import { ProfileFormComponent } from '../../components/profile-form/profile-form
   imports: [
     CommonModule,
     ProfileRoutingModule,
-    
+  
   ]
 })
 export class ProfileModule { }
