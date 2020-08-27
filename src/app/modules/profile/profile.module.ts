@@ -11,7 +11,6 @@ import { ProfileFormComponent } from '../../components/profile-form/profile-form
   declarations: [ProfileFormComponent],
   imports: [
     CommonModule,
-    ProfileRoutingModule,
   
   ]
 })
